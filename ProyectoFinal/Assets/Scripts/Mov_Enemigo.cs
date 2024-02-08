@@ -33,14 +33,14 @@ public class Mov_Enemigo : MonoBehaviour
         // Verificar la etiqueta del objeto con el que colisionó
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             rb.gravityScale = 0f;
             Invoke("normalidad", 0.75f);
         }
         else if (!collision.gameObject.CompareTag("Floor"))
         {
             sentido = !sentido;
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             rb.gravityScale = 1f;
         }
 
@@ -50,7 +50,7 @@ public class Mov_Enemigo : MonoBehaviour
     private void normalidad()
     {
         rb.gravityScale = 1f;
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
     }
 
 }
