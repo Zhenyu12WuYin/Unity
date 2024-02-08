@@ -37,14 +37,29 @@ public class Mov_Enemigo : MonoBehaviour
             rb.gravityScale = 0f;
             Invoke("normalidad", 0.75f);
         }
-        else if (!collision.gameObject.CompareTag("Floor"))
+        else if (!(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Cherry")))
         {
             sentido = !sentido;
             gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             rb.gravityScale = 1f;
         }
+    }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Verificar la etiqueta del objeto con el que colisionó
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            rb.gravityScale = 0f;
+            Invoke("normalidad", 0.75f);
+        }
+        else if (!(collision.gameObject.CompareTag("Floor")||collision.gameObject.CompareTag("Cherry")))
+        {
+            sentido = !sentido;
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+            rb.gravityScale = 1f;
+        }
     }
 
     private void normalidad()

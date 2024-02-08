@@ -6,12 +6,14 @@ public class Movimiento_Zorro : MonoBehaviour
 {
     Animator animacion;
     private Rigidbody2D rb;
-
+    private Vida vida;
+    private Extra extra;
     void Start()
     {
+        
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         animacion = this.gameObject.GetComponent<Animator>();
-        
+        vida= GetComponent<Vida>();
     }
 
     void Update()
@@ -51,11 +53,42 @@ public class Movimiento_Zorro : MonoBehaviour
 
     }
 
+
+    /* No funciona la animación de daño
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("si");
             animacion.SetInteger("Estado", 4);
+            Invoke("Update", 2f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("No");
+            animacion.SetInteger("Estado", 4);
+            Invoke("Update", 2f);
+        }
+    }*/
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            vida.PerderVida();
+        }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Cherry"))
+        {
+            extra.MasExtra();
         }
     }
 }

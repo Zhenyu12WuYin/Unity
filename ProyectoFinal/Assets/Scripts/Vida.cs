@@ -9,9 +9,6 @@ public class Vida : MonoBehaviour
     public int vidaActual;
     public int vidaTotal;
 
-    [SerializeField] Collider2D personaje;
-    [SerializeField] Collider2D enemigo;
-
     [SerializeField] Image[] corazones;
     [SerializeField] Sprite fullHeart;
     [SerializeField] Sprite emptyHeart;
@@ -24,11 +21,6 @@ public class Vida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (personaje.IsTouching(enemigo))
-        {
-            vidaActual--;
-            Invoke("Update", 1f);
-        }
 
         if (vidaActual>vidaTotal)
         {
@@ -55,5 +47,10 @@ public class Vida : MonoBehaviour
 
             }
         }
+    }
+
+    public void PerderVida()
+    {
+        vidaActual--;
     }
 }

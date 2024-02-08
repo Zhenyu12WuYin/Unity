@@ -408,6 +408,7 @@
 "Assets/Scripts/Adjuntar Texto.cs"
 "Assets/Scripts/Camara.cs"
 "Assets/Scripts/CambiarEscenas.cs"
+"Assets/Scripts/Extra.cs"
 "Assets/Scripts/Movimiento_Fondo.cs"
 "Assets/Scripts/Movimiento_Personaje.cs"
 "Assets/Scripts/Mov_Enemigo.cs"
