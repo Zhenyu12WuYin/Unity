@@ -31,10 +31,26 @@ public class Mov_Enemigo : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Verificar la etiqueta del objeto con el que colisionó
-        if (!collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            rb.gravityScale = 0f;
+            Invoke("normalidad", 0.75f);
+        }
+        else if (!collision.gameObject.CompareTag("Floor"))
         {
             sentido = !sentido;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            rb.gravityScale = 1f;
         }
+
+
     }
-        
+
+    private void normalidad()
+    {
+        rb.gravityScale = 1f;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+
 }
