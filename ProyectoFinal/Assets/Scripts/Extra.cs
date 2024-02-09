@@ -13,10 +13,12 @@ public class Extra : MonoBehaviour
     [SerializeField] Sprite cherry;
     [SerializeField] Sprite empty;
 
+    [SerializeField] GameObject final;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        final.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,12 +50,18 @@ public class Extra : MonoBehaviour
 
             }
         }
+
+        
     }
 
     public void MasExtra()
     {
         extraActual++;
-    }
 
+        if (extraActual == 3)
+        {
+            final.SetActive(true);
+        }
+    }
 
 }

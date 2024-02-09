@@ -14,6 +14,7 @@ public class Movimiento_Zorro : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         animacion = this.gameObject.GetComponent<Animator>();
         vida= GetComponent<Vida>();
+        extra = GetComponent<Extra>();
     }
 
     void Update()
@@ -59,7 +60,6 @@ public class Movimiento_Zorro : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("si");
             animacion.SetInteger("Estado", 4);
             Invoke("Update", 2f);
         }
@@ -69,7 +69,6 @@ public class Movimiento_Zorro : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("No");
             animacion.SetInteger("Estado", 4);
             Invoke("Update", 2f);
         }
@@ -81,14 +80,17 @@ public class Movimiento_Zorro : MonoBehaviour
         {
             vida.PerderVida();
         }
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Cherry"))
         {
+            Animator AnimCherry = collision.gameObject.GetComponent<Animator>();
             extra.MasExtra();
+            AnimCherry.SetInteger("Desaparecer",1);
+            Destroy(collision.gameObject,0.5f);
         }
     }
 }
