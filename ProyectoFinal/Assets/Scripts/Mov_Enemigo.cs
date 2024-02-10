@@ -37,7 +37,8 @@ public class Mov_Enemigo : MonoBehaviour
             rb.gravityScale = 0f;
             Invoke("normalidad", 0.75f);
         }
-        else if (!(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Cherry")))
+        else if (!(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Cherry")
+                    || collision.gameObject.CompareTag("Respawn")))
         {
             sentido = !sentido;
             gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
@@ -54,7 +55,8 @@ public class Mov_Enemigo : MonoBehaviour
             rb.gravityScale = 0f;
             Invoke("normalidad", 0.75f);
         }
-        else if (!(collision.gameObject.CompareTag("Floor")||collision.gameObject.CompareTag("Cherry")))
+        else if (!(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Cherry")
+                    || collision.gameObject.CompareTag("Respawn")))
         {
             sentido = !sentido;
             gameObject.GetComponent<BoxCollider2D>().isTrigger = false;

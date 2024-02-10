@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ganar : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Ganar : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") ) 
+        if (collision.CompareTag("Player") && this.gameObject.GetComponent<Renderer>().enabled==true) 
         {
             this.GetComponent<Animator>().SetInteger("Desaparecer", 1);
             Destroy(this.gameObject,0.75f);

@@ -89,8 +89,10 @@ public class Movimiento_Zorro : MonoBehaviour
         {
             Animator AnimCherry = collision.gameObject.GetComponent<Animator>();
             extra.MasExtra();
-            AnimCherry.SetInteger("Desaparecer",1);
-            Destroy(collision.gameObject,0.5f);
+            AnimCherry.SetInteger("Desaparecer", 1);
+            Destroy(collision.gameObject, 0.75f);
         }
+        else if (collision.gameObject.CompareTag("Enemy"))
+            vida.PerderVida();
     }
 }

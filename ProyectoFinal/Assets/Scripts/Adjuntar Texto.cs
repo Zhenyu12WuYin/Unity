@@ -14,13 +14,11 @@ public class ControladorSample : MonoBehaviour
 
         string nombreJugador = PlayerPrefs.GetString("Nombre");
 
-        texto.GetComponent<TMP_Text>().SetText(nombreJugador);
-
         texto = GameObject.Find("Dificultad");
 
         string dificultadJugador = PlayerPrefs.GetString("Dificultad");
 
-        texto.GetComponent<TMP_Text>().SetText(dificultadJugador);
+        texto.GetComponent<TMP_Text>().SetText("Nivel 1     Dificultad: "+dificultadJugador+ "\nPlayer: "+nombreJugador);
     }
 
 }
