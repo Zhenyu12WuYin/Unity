@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Escena1.unity
     guid: c04287a4ba8bdc34681935fd31d620de
   - enabled: 1
-    path: Assets/Scenes/Escena2.unity
+    path: Assets/Scenes/Ganar.unity
     guid: ddeaa09e8299eea4d8e95422925cb923
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

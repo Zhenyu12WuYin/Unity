@@ -10,15 +10,13 @@ public class ControladorSample : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        texto = GameObject.Find("Nombre");
-
+        //Partida
         string nombreJugador = PlayerPrefs.GetString("Nombre");
-
         texto = GameObject.Find("Dificultad");
-
         string dificultadJugador = PlayerPrefs.GetString("Dificultad");
-
         texto.GetComponent<TMP_Text>().SetText("Nivel 1     Dificultad: "+dificultadJugador+ "\nPlayer: "+nombreJugador);
+
+        
     }
 
 }
