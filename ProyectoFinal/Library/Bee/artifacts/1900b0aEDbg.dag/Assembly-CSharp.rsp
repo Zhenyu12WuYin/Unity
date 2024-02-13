@@ -411,6 +411,7 @@
 "Assets/Scripts/Creditos_Ganar.cs"
 "Assets/Scripts/Empezar.cs"
 "Assets/Scripts/Extra.cs"
+"Assets/Scripts/Final.cs"
 "Assets/Scripts/Ganar.cs"
 "Assets/Scripts/Generador.cs"
 "Assets/Scripts/Movimiento_Fondo.cs"

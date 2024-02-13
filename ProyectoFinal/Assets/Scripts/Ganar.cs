@@ -41,7 +41,44 @@ public class Ganar : MonoBehaviour
         {
             this.GetComponent<Animator>().SetInteger("Desaparecer", 1);
             Destroy(this.gameObject,0.75f);
-            PlayerPrefs.SetString("Tiempo",tiempoFormateado);
+            PlayerPrefs.SetString("TiempoForm",tiempoFormateado);
+            PlayerPrefs.SetFloat("Tiempo", tiempo);
+
+            float time=0f;
+            float aTiempo = tiempo;
+            string aNombre = PlayerPrefs.GetString("Nombre");
+            string aTiempoForm = tiempoFormateado;
+            float bTiempo = tiempo;
+            string bNombre = PlayerPrefs.GetString("Nombre");
+            string bTiempoForm = tiempoFormateado;
+            for (int i = 0; i < 10; i++)
+            {
+                time = PlayerPrefs.GetFloat("Tiempo" + i);
+                if (time == 0f)
+                {
+                    PlayerPrefs.SetString("Nombre" + i, PlayerPrefs.GetString("Nombre"));
+                    PlayerPrefs.SetFloat("Tiempo" + i, tiempo);
+                    PlayerPrefs.SetString("TiempoForm" + i, tiempoFormateado);
+
+                } else if (time>aTiempo)
+                {
+                    bTiempo = PlayerPrefs.GetFloat("Tiempo"+i);
+                    bNombre = PlayerPrefs.GetString("Nombre" + i);
+                    bTiempoForm = PlayerPrefs.GetString("TiempoForm" + i);
+
+
+                    PlayerPrefs.SetString("Nombre" + i, aNombre);
+                    PlayerPrefs.SetFloat("Tiempo" + i, aTiempo);
+                    PlayerPrefs.SetString("TiempoForm" + i, aTiempoForm);
+
+                    aTiempo = bTiempo;
+                    aNombre = bNombre;
+                    aTiempoForm = bTiempoForm;
+                }
+                Debug.Log(i);
+            }
+
+
             SceneManager.LoadScene("Ganar");
         }
     }

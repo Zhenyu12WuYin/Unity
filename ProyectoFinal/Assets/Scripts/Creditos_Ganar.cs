@@ -10,10 +10,23 @@ public class Creditos_Ganar : MonoBehaviour
     void Start()
     {
         texto = GameObject.Find("Ganar");
-        string nombreJugador = PlayerPrefs.GetString("Nombre");
-        string tiempoJugador = PlayerPrefs.GetString("Tiempo");
-        texto.GetComponent<TMP_Text>().SetText("Felicidades "+ nombreJugador+", ganaste la partida en " + tiempoJugador);
+        if (texto != null)
+        {
+            string nombreJugador = PlayerPrefs.GetString("Nombre");
+            string tiempoJugador = PlayerPrefs.GetString("TiempoForm");
+            texto.GetComponent<TMP_Text>().SetText("Felicidades " + nombreJugador + ", ganaste la partida en " + tiempoJugador);
+        }
 
+        texto = GameObject.Find("Ranking");
+        if (texto != null)
+        {
+            string perfiles="";
+            for (int i = 0;i<10;i++)
+            {
+                perfiles +=(i+1)+"---"+ PlayerPrefs.GetString("Nombre"+i)+"---"+PlayerPrefs.GetString("TiempoForm"+i)+"\n";
+            }
+            texto.GetComponent<TMP_Text>().SetText(perfiles);
+        }
     }
 
     // Update is called once per frame
