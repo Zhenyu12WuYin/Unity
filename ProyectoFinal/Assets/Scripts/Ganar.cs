@@ -75,7 +75,7 @@ public class Ganar : MonoBehaviour
                     aNombre = bNombre;
                     aTiempoForm = bTiempoForm;
                 }
-                Debug.Log(i);
+
             }
 
 

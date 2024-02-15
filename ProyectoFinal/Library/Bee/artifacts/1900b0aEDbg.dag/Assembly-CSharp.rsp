@@ -418,6 +418,7 @@
 "Assets/Scripts/Movimiento_Personaje.cs"
 "Assets/Scripts/Mov_Enemigo.cs"
 "Assets/Scripts/Mov_Enemigo1.cs"
+"Assets/Scripts/Perder.cs"
 "Assets/Scripts/Vida.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"

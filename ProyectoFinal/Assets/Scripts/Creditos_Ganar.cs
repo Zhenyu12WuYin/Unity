@@ -23,6 +23,10 @@ public class Creditos_Ganar : MonoBehaviour
             string perfiles="";
             for (int i = 0;i<10;i++)
             {
+                if (!(
+                    PlayerPrefs.GetString("Nombre"+i).Equals(PlayerPrefs.GetString("Nombre"+(i-1)))
+                    && PlayerPrefs.GetFloat("Tiempo" + i) == PlayerPrefs.GetFloat("Tiempo" + (i - 1))
+                    ))
                 perfiles +=(i+1)+"---"+ PlayerPrefs.GetString("Nombre"+i)+"---"+PlayerPrefs.GetString("TiempoForm"+i)+"\n";
             }
             texto.GetComponent<TMP_Text>().SetText(perfiles);
